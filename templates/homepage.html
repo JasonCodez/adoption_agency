@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block content%}
+   <h1 id="heading">All pets</h1>
+      {% for pet in pets %}
+      <div id="pet-card">    
+         <p class="pet-name">{{ pet.name }}</p>
+         <p class="text-center"><a class="text-white" href="profile/{{ pet.id }}">more details...</a></p>
+         <img class="pet-photo" src="{{ pet.photo_url }}" alt="{{ pet.name }} photo">
+         {% if pet.available %}
+          <p class="text-white text-center mt-4"><strong>Available</strong></p>  
+         {% endif %} 
+      </div>
+      {% endfor %}
+      <div class="text-center mt-4">
+         <form action="/add" method="GET">
+            <button class="btn btn-success">Add Pet</button>
+         </form>
+         
+      </div>
+      
+   
+{% endblock %}

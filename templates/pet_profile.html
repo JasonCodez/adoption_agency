@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Pet Profile{% endblock %}
+
+{% block content%}
+   <h1 id="heading">{{ pet.name }}'s profile</h1>
+   <p>Name: {{ pet.name }}</p>
+   <p>Species: {{ pet.species }}</p>
+   <img src="{{ pet.photo_url }}" alt="{{ pet.name }} photo">
+   <p>{{ pet.age }}</p>
+   <p>{{ pet.notes }}</p>
+   {% if pet.available %}
+      <p class="text-success"><strong>Available</strong></p>
+   {% endif %}
+   <a href="{{ pet.id }}/edit">Edit pet</a>
+      
+   
+{% endblock %}
